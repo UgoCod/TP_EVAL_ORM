@@ -19,4 +19,11 @@ public class Cat extends Animal {
     public void setChipId(String chipId) {
         this.chipId = chipId;
     }
+
+    @Override
+    public String toString() {
+        return "Cat{" +
+                "chipId='" + chipId + '\'' +
+                '}';
+    }
 }

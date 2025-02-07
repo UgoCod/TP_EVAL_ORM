@@ -57,4 +57,14 @@ public class Animal implements Serializable {
     public void setPetStore(PetStore petStore) {
         this.petStore = petStore;
     }
+
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "id=" + id +
+                ", dateNaissance=" + dateNaissance +
+                ", couleur='" + couleur + '\'' +
+                ", petStore=" + petStore +
+                '}';
+    }
 }

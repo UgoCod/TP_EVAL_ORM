@@ -23,10 +23,18 @@ public class Adresse implements Serializable {
     @Column(name = "city", length = 50, nullable = false)
     private String ville;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
+    @JoinColumn(name = "id_petStore")
     private PetStore petStore;
 
     public Adresse() {
+    }
+
+    public Adresse(String numero, String rue, String codePostal, String ville) {
+        this.numero = numero;
+        this.rue = rue;
+        this.codePostal = codePostal;
+        this.ville = ville;
     }
 
     public long getId() {

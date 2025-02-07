@@ -19,4 +19,11 @@ public class Fish extends Animal {
     public void setEnvironnement(FishLivEnv environnement) {
         this.environnement = environnement;
     }
+
+    @Override
+    public String toString() {
+        return "Fish{" +
+                "environnement=" + environnement +
+                '}';
+    }
 }

@@ -30,6 +30,7 @@ public class PetStore implements Serializable {
     }
 
     @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "adresse_id")
     private Adresse adresse;
 
     @OneToMany(mappedBy = "petStore", cascade = CascadeType.ALL)
@@ -69,6 +70,13 @@ public class PetStore implements Serializable {
         return produits;
     }
 
+    public void ajouterProduit (Produit p) {
+        if (p != null) {
+            this.produits.add(p);
+            p.getPetStores().add(this);
+        }
+    }
+
     public void setProduits(Set<Produit> produits) {
         this.produits = produits;
     }
@@ -81,8 +89,20 @@ public class PetStore implements Serializable {
         this.adresse = adresse;
     }
 
+    public void ajouterAdresse(Adresse adresse) {
+        this.adresse = adresse;
+        adresse.getPetStore().setAdresse(adresse);
+    }
+
     public Set<Animal> getAnimaux() {
         return animaux;
+    }
+
+    public void ajouterAnimal(Animal a) {
+        if (a != null) {
+            this.animaux.add(a);
+            a.setPetStore(this);
+        }
     }
 
     public void setAnimaux(Set<Animal> animaux) {
